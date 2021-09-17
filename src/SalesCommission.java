@@ -24,13 +24,13 @@ public class SalesCommission {
 
     public static void main(String[] args) {
 
-        double hoursWorked = Integer.parseInt(JOptionPane.showInputDialog("How many hours have you worked this week? "));
+        int hoursWorked = Integer.parseInt(JOptionPane.showInputDialog("How many hours have you worked this week? "));
         double hourlyRate = inputs("What is your hourly rate?");
         double salesCommission = inputs("What is your sales commission percentage? (As a decimal)");
-        double totalSales = inputs("How much is your total sales? ");
 
-
-
+        double hourlyPay = hourlyPay(hoursWorked, hourlyRate);
+        double totalSales = totalSales(hourlyPay, commissionPay);
+        double commissionPay = commissionPay(salesCommission, totalSales);
 
 
     }
@@ -40,12 +40,20 @@ public class SalesCommission {
 
     }
 
-    public static double (int hoursWorked, double hourlyRate) {
-        
-
+    public static double hourlyPay(int hoursWorked, double hourlyRate) {
+        double hourlyPay = hoursWorked * hourlyRate;
+        return hourlyPay;
     }
 
+    public static double totalSales(double hourlyPay, double commissionPay){
+        return hourlyPay + commissionPay;
+    }
 
+    public static double commissionPay(double salesCommission, double totalSales){
+        return  totalSales * salesCommission / 100;
+    }
+
+    public static void output(double hourlyPay, double )
 
 
 
